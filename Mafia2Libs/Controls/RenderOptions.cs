@@ -35,6 +35,7 @@ namespace Forms.OptionControls
             TexDirectoryBox.Text = ToolkitSettings.TexturePath;
             ExperimentalBox.Checked = ToolkitSettings.Experimental;
             UseMIPsBox.Checked = ToolkitSettings.UseMIPS;
+            comboBoxSeason.SelectedIndex = ToolkitSettings.Season;
         }
 
         private void ScreenDepth_Changed(object sender, EventArgs e)
@@ -88,6 +89,17 @@ namespace Forms.OptionControls
         {
             ToolkitSettings.FieldOfView = (float)FieldOfViewNumDown.Value;
             ToolkitSettings.WriteKey("FieldOfView", "ModelViewer", ToolkitSettings.FieldOfView.ToString());
+        }
+
+        private void comboBoxSeason_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ToolkitSettings.Season = comboBoxSeason.SelectedIndex;
+            ToolkitSettings.WriteKey("Season", "ModelViewer", comboBoxSeason.SelectedIndex.ToString());
+        }
+
+        private void listBoxSeason_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

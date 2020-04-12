@@ -32,6 +32,7 @@ namespace Utils.Settings
         public static float FieldOfView;
         public const int Width = 1920;
         public const int Height = 1080;
+        public static int Season;
 
         //Model Exporting keys;
         public static int Format;
@@ -61,6 +62,7 @@ namespace Utils.Settings
 
             M2Directory = ReadKey("MafiaII", "Directories");
             TexturePath = ReadKey("TexturePath", "ModelViewer");
+            int.TryParse(ReadKey("Season", "ModelViewer", "0"), out Season);
             CustomStateText = ReadKey("CustomStateText", "Discord", "Developing mods.");
             bool.TryParse(ReadKey("Enabled", "Discord", "True"), out DiscordEnabled);
             bool.TryParse(ReadKey("ElapsedTimeEnabled", "Discord", "True"), out DiscordElapsedTimeEnabled);

@@ -11,6 +11,7 @@ namespace Forms.Docking
 {
     public partial class DockSceneTree : DockContent
     {
+        public Vector3 ProxyPos = new Vector3(0, 0, 0);
         public DockSceneTree()
         {
             InitializeComponent();
@@ -35,6 +36,11 @@ namespace Forms.Docking
                 child.Checked = true;
                 ApplyImageIndex(child);
                 RecurseChildren(child);
+                if (child.Text.Contains("proxy") || (child.Text.Contains("translocator") && child.Text.Contains("00")))
+                {
+                    FrameObjectBase fObject = (child.Tag as FrameObjectBase);
+                    ProxyPos = fObject.WorldTransform.TranslationVector;
+                }
             }
         }
 
@@ -103,14 +109,14 @@ namespace Forms.Docking
                 {
                     EntryMenuStrip.Items[0].Visible = true;
                 }
-                if ((treeView1.SelectedNode.Tag.GetType() == typeof(FrameObjectSingleMesh) || 
-                    treeView1.SelectedNode.Tag.GetType() == typeof(FrameObjectModel) ||                   
+                if((treeView1.SelectedNode.Tag.GetType() == typeof(FrameObjectSingleMesh) ||
+                    treeView1.SelectedNode.Tag.GetType() == typeof(FrameObjectModel) ||
                     treeView1.SelectedNode.Tag.GetType() == typeof(ResourceTypes.Collisions.Collision.CollisionModel)))
                 {
                     EntryMenuStrip.Items[3].Visible = true;
                 }
 
-                if (FrameResource.IsFrameType(treeView1.SelectedNode.Tag))
+                if(FrameResource.IsFrameType(treeView1.SelectedNode.Tag))
                 {
                     EntryMenuStrip.Items[4].Visible = true;
 
@@ -131,10 +137,10 @@ namespace Forms.Docking
                 return (data as FrameObjectBase).WorldTransform.TranslationVector;
             }
 
-            if(data.GetType() == typeof(ResourceTypes.Collisions.Collision.Placement))
+            if (data.GetType() == typeof(ResourceTypes.Collisions.Collision.Placement))
                 return (data as ResourceTypes.Collisions.Collision.Placement).Position;
 
-            if(data.GetType() == typeof(Rendering.Graphics.RenderJunction))
+            if (data.GetType() == typeof(Rendering.Graphics.RenderJunction))
                 return (data as Rendering.Graphics.RenderJunction).Data.Position;
 
             if (data.GetType() == typeof(ResourceTypes.Actors.ActorEntry))

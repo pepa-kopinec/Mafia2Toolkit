@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.RenderGroup = new System.Windows.Forms.GroupBox();
+            this.comboBoxSeason = new System.Windows.Forms.ComboBox();
             this.FieldOfViewNumDown = new System.Windows.Forms.NumericUpDown();
             this.RenderFieldOfView = new System.Windows.Forms.Label();
             this.UseMIPsBox = new System.Windows.Forms.CheckBox();
@@ -52,6 +53,7 @@
             // 
             // RenderGroup
             // 
+            this.RenderGroup.Controls.Add(this.comboBoxSeason);
             this.RenderGroup.Controls.Add(this.FieldOfViewNumDown);
             this.RenderGroup.Controls.Add(this.RenderFieldOfView);
             this.RenderGroup.Controls.Add(this.UseMIPsBox);
@@ -67,11 +69,25 @@
             this.RenderGroup.Controls.Add(this.ScreenNearLabel);
             this.RenderGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RenderGroup.Location = new System.Drawing.Point(0, 0);
+            this.RenderGroup.Margin = new System.Windows.Forms.Padding(4);
             this.RenderGroup.Name = "RenderGroup";
-            this.RenderGroup.Size = new System.Drawing.Size(390, 193);
+            this.RenderGroup.Padding = new System.Windows.Forms.Padding(4);
+            this.RenderGroup.Size = new System.Drawing.Size(520, 265);
             this.RenderGroup.TabIndex = 2;
             this.RenderGroup.TabStop = false;
             this.RenderGroup.Text = "$RENDER_OPTIONS";
+            // 
+            // comboBoxSeason
+            // 
+            this.comboBoxSeason.FormattingEnabled = true;
+            this.comboBoxSeason.Items.AddRange(new object[] {
+            "Summer",
+            "Winter"});
+            this.comboBoxSeason.Location = new System.Drawing.Point(313, 162);
+            this.comboBoxSeason.Name = "comboBoxSeason";
+            this.comboBoxSeason.Size = new System.Drawing.Size(160, 24);
+            this.comboBoxSeason.TabIndex = 14;
+            this.comboBoxSeason.SelectedIndexChanged += new System.EventHandler(this.comboBoxSeason_SelectedIndexChanged);
             // 
             // FieldOfViewNumDown
             // 
@@ -81,7 +97,8 @@
             0,
             0,
             65536});
-            this.FieldOfViewNumDown.Location = new System.Drawing.Point(235, 126);
+            this.FieldOfViewNumDown.Location = new System.Drawing.Point(313, 133);
+            this.FieldOfViewNumDown.Margin = new System.Windows.Forms.Padding(4);
             this.FieldOfViewNumDown.Maximum = new decimal(new int[] {
             120,
             0,
@@ -93,7 +110,7 @@
             0,
             0});
             this.FieldOfViewNumDown.Name = "FieldOfViewNumDown";
-            this.FieldOfViewNumDown.Size = new System.Drawing.Size(120, 20);
+            this.FieldOfViewNumDown.Size = new System.Drawing.Size(160, 22);
             this.FieldOfViewNumDown.TabIndex = 13;
             this.FieldOfViewNumDown.Value = new decimal(new int[] {
             120,
@@ -105,18 +122,20 @@
             // RenderFieldOfView
             // 
             this.RenderFieldOfView.AutoSize = true;
-            this.RenderFieldOfView.Location = new System.Drawing.Point(232, 110);
+            this.RenderFieldOfView.Location = new System.Drawing.Point(309, 113);
+            this.RenderFieldOfView.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.RenderFieldOfView.Name = "RenderFieldOfView";
-            this.RenderFieldOfView.Size = new System.Drawing.Size(137, 13);
+            this.RenderFieldOfView.Size = new System.Drawing.Size(173, 17);
             this.RenderFieldOfView.TabIndex = 12;
             this.RenderFieldOfView.Text = "$RENDER_FIELDOFVIEW";
             // 
             // UseMIPsBox
             // 
             this.UseMIPsBox.AutoSize = true;
-            this.UseMIPsBox.Location = new System.Drawing.Point(235, 61);
+            this.UseMIPsBox.Location = new System.Drawing.Point(313, 75);
+            this.UseMIPsBox.Margin = new System.Windows.Forms.Padding(4);
             this.UseMIPsBox.Name = "UseMIPsBox";
-            this.UseMIPsBox.Size = new System.Drawing.Size(72, 17);
+            this.UseMIPsBox.Size = new System.Drawing.Size(89, 21);
             this.UseMIPsBox.TabIndex = 11;
             this.UseMIPsBox.Text = "Use MIPs";
             this.UseMIPsBox.UseVisualStyleBackColor = true;
@@ -125,9 +144,10 @@
             // ExperimentalBox
             // 
             this.ExperimentalBox.AutoSize = true;
-            this.ExperimentalBox.Location = new System.Drawing.Point(235, 38);
+            this.ExperimentalBox.Location = new System.Drawing.Point(313, 47);
+            this.ExperimentalBox.Margin = new System.Windows.Forms.Padding(4);
             this.ExperimentalBox.Name = "ExperimentalBox";
-            this.ExperimentalBox.Size = new System.Drawing.Size(86, 17);
+            this.ExperimentalBox.Size = new System.Drawing.Size(111, 21);
             this.ExperimentalBox.TabIndex = 10;
             this.ExperimentalBox.Text = "Experimental";
             this.ExperimentalBox.UseVisualStyleBackColor = true;
@@ -135,9 +155,10 @@
             // 
             // BrowseButton
             // 
-            this.BrowseButton.Location = new System.Drawing.Point(345, 167);
+            this.BrowseButton.Location = new System.Drawing.Point(458, 232);
+            this.BrowseButton.Margin = new System.Windows.Forms.Padding(4);
             this.BrowseButton.Name = "BrowseButton";
-            this.BrowseButton.Size = new System.Drawing.Size(26, 20);
+            this.BrowseButton.Size = new System.Drawing.Size(35, 25);
             this.BrowseButton.TabIndex = 9;
             this.BrowseButton.Text = "...";
             this.BrowseButton.UseVisualStyleBackColor = true;
@@ -145,18 +166,20 @@
             // 
             // TexDirectoryBox
             // 
-            this.TexDirectoryBox.Location = new System.Drawing.Point(7, 167);
+            this.TexDirectoryBox.Location = new System.Drawing.Point(7, 232);
+            this.TexDirectoryBox.Margin = new System.Windows.Forms.Padding(4);
             this.TexDirectoryBox.Name = "TexDirectoryBox";
-            this.TexDirectoryBox.Size = new System.Drawing.Size(332, 20);
+            this.TexDirectoryBox.Size = new System.Drawing.Size(441, 22);
             this.TexDirectoryBox.TabIndex = 8;
             this.TexDirectoryBox.TextChanged += new System.EventHandler(this.TexDirectoryBox_TextChanged);
             // 
             // TexLabel
             // 
             this.TexLabel.AutoSize = true;
-            this.TexLabel.Location = new System.Drawing.Point(4, 151);
+            this.TexLabel.Location = new System.Drawing.Point(5, 186);
+            this.TexLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TexLabel.Name = "TexLabel";
-            this.TexLabel.Size = new System.Drawing.Size(133, 13);
+            this.TexLabel.Size = new System.Drawing.Size(169, 17);
             this.TexLabel.TabIndex = 7;
             this.TexLabel.Text = "$TEXTURE_DIRECTORY";
             // 
@@ -168,14 +191,15 @@
             0,
             0,
             65536});
-            this.CameraSpeedUpDown.Location = new System.Drawing.Point(7, 126);
+            this.CameraSpeedUpDown.Location = new System.Drawing.Point(9, 155);
+            this.CameraSpeedUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.CameraSpeedUpDown.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.CameraSpeedUpDown.Name = "CameraSpeedUpDown";
-            this.CameraSpeedUpDown.Size = new System.Drawing.Size(120, 20);
+            this.CameraSpeedUpDown.Size = new System.Drawing.Size(160, 22);
             this.CameraSpeedUpDown.TabIndex = 6;
             this.CameraSpeedUpDown.Value = new decimal(new int[] {
             1,
@@ -187,15 +211,17 @@
             // CameraSpeedLabel
             // 
             this.CameraSpeedLabel.AutoSize = true;
-            this.CameraSpeedLabel.Location = new System.Drawing.Point(4, 110);
+            this.CameraSpeedLabel.Location = new System.Drawing.Point(5, 135);
+            this.CameraSpeedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CameraSpeedLabel.Name = "CameraSpeedLabel";
-            this.CameraSpeedLabel.Size = new System.Drawing.Size(146, 13);
+            this.CameraSpeedLabel.Size = new System.Drawing.Size(185, 17);
             this.CameraSpeedLabel.TabIndex = 5;
             this.CameraSpeedLabel.Text = "$RENDER_CAMERASPEED";
             // 
             // ScreenFarUpDown
             // 
-            this.ScreenFarUpDown.Location = new System.Drawing.Point(7, 81);
+            this.ScreenFarUpDown.Location = new System.Drawing.Point(9, 100);
+            this.ScreenFarUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.ScreenFarUpDown.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -207,7 +233,7 @@
             0,
             0});
             this.ScreenFarUpDown.Name = "ScreenFarUpDown";
-            this.ScreenFarUpDown.Size = new System.Drawing.Size(120, 20);
+            this.ScreenFarUpDown.Size = new System.Drawing.Size(160, 22);
             this.ScreenFarUpDown.TabIndex = 4;
             this.ScreenFarUpDown.Value = new decimal(new int[] {
             1,
@@ -218,32 +244,35 @@
             // 
             // ScreenNearUpDown
             // 
-            this.ScreenNearUpDown.Location = new System.Drawing.Point(7, 37);
+            this.ScreenNearUpDown.Location = new System.Drawing.Point(9, 46);
+            this.ScreenNearUpDown.Margin = new System.Windows.Forms.Padding(4);
             this.ScreenNearUpDown.Maximum = new decimal(new int[] {
             2500,
             0,
             0,
             0});
             this.ScreenNearUpDown.Name = "ScreenNearUpDown";
-            this.ScreenNearUpDown.Size = new System.Drawing.Size(120, 20);
+            this.ScreenNearUpDown.Size = new System.Drawing.Size(160, 22);
             this.ScreenNearUpDown.TabIndex = 3;
             this.ScreenNearUpDown.ValueChanged += new System.EventHandler(this.ScreenNear_Changed);
             // 
             // ScreenFarLabel
             // 
             this.ScreenFarLabel.AutoSize = true;
-            this.ScreenFarLabel.Location = new System.Drawing.Point(4, 65);
+            this.ScreenFarLabel.Location = new System.Drawing.Point(5, 80);
+            this.ScreenFarLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ScreenFarLabel.Name = "ScreenFarLabel";
-            this.ScreenFarLabel.Size = new System.Drawing.Size(130, 13);
+            this.ScreenFarLabel.Size = new System.Drawing.Size(165, 17);
             this.ScreenFarLabel.TabIndex = 2;
             this.ScreenFarLabel.Text = "$RENDER_SCREENFAR";
             // 
             // ScreenNearLabel
             // 
             this.ScreenNearLabel.AutoSize = true;
-            this.ScreenNearLabel.Location = new System.Drawing.Point(4, 21);
+            this.ScreenNearLabel.Location = new System.Drawing.Point(5, 26);
+            this.ScreenNearLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ScreenNearLabel.Name = "ScreenNearLabel";
-            this.ScreenNearLabel.Size = new System.Drawing.Size(139, 13);
+            this.ScreenNearLabel.Size = new System.Drawing.Size(176, 17);
             this.ScreenNearLabel.TabIndex = 0;
             this.ScreenNearLabel.Text = "$RENDER_SCREENNEAR";
             // 
@@ -253,11 +282,12 @@
             // 
             // RenderOptions
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.RenderGroup);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RenderOptions";
-            this.Size = new System.Drawing.Size(390, 193);
+            this.Size = new System.Drawing.Size(520, 265);
             this.RenderGroup.ResumeLayout(false);
             this.RenderGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FieldOfViewNumDown)).EndInit();
@@ -285,5 +315,6 @@
         private System.Windows.Forms.CheckBox UseMIPsBox;
         private System.Windows.Forms.NumericUpDown FieldOfViewNumDown;
         private System.Windows.Forms.Label RenderFieldOfView;
+        private System.Windows.Forms.ComboBox comboBoxSeason;
     }
 }

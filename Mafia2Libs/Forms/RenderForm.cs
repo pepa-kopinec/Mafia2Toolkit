@@ -63,6 +63,17 @@ namespace Mafia2Tool
                 MessageBox.Show("No material libraries have loaded, make sure they are set up correctly in the options window!", "Warning!", MessageBoxButtons.OK);
             }
 
+            if (info.Directory.Name.Contains("_z.sds"))
+            {
+                ToolkitSettings.Season = 1;
+                ToolkitSettings.WriteKey("Season", "ModelViewer", "1");
+            }
+            else
+            {
+                ToolkitSettings.Season = 0;
+                ToolkitSettings.WriteKey("Season", "ModelViewer", "0");
+            }
+
             ToolkitSettings.UpdateRichPresence(string.Format("Editing '{0}'", info.Directory.Name));
             fileLocation = info;
             InitDockingControls();
@@ -229,6 +240,7 @@ namespace Mafia2Tool
         public void StartD3DPanel()
         {
             Init(RenderPanel.Handle);
+            Graphics.Camera.Position = dSceneTree.ProxyPos;
             Run();
         }
 
