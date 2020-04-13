@@ -91,10 +91,11 @@
             this.QuickEditTab.Controls.Add(this.PositionZLabel);
             this.QuickEditTab.Controls.Add(this.PositionYLabel);
             this.QuickEditTab.Controls.Add(this.PositionXLabel);
-            this.QuickEditTab.Location = new System.Drawing.Point(4, 22);
+            this.QuickEditTab.Location = new System.Drawing.Point(4, 25);
+            this.QuickEditTab.Margin = new System.Windows.Forms.Padding(4);
             this.QuickEditTab.Name = "QuickEditTab";
-            this.QuickEditTab.Padding = new System.Windows.Forms.Padding(3);
-            this.QuickEditTab.Size = new System.Drawing.Size(261, 435);
+            this.QuickEditTab.Padding = new System.Windows.Forms.Padding(4);
+            this.QuickEditTab.Size = new System.Drawing.Size(351, 538);
             this.QuickEditTab.TabIndex = 1;
             this.QuickEditTab.Text = "Edit Transform";
             this.QuickEditTab.UseVisualStyleBackColor = true;
@@ -107,7 +108,8 @@
             0,
             0,
             65536});
-            this.ScaleZNumeric.Location = new System.Drawing.Point(67, 240);
+            this.ScaleZNumeric.Location = new System.Drawing.Point(89, 295);
+            this.ScaleZNumeric.Margin = new System.Windows.Forms.Padding(4);
             this.ScaleZNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -119,8 +121,11 @@
             0,
             -2147483648});
             this.ScaleZNumeric.Name = "ScaleZNumeric";
-            this.ScaleZNumeric.Size = new System.Drawing.Size(185, 20);
+            this.ScaleZNumeric.Size = new System.Drawing.Size(247, 22);
             this.ScaleZNumeric.TabIndex = 29;
+            this.ScaleZNumeric.DoubleClick += new System.EventHandler(this.Numeric_DoubleClick);
+            this.ScaleZNumeric.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyDown);
+            this.ScaleZNumeric.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyUp);
             // 
             // ScaleYNumeric
             // 
@@ -130,7 +135,8 @@
             0,
             0,
             65536});
-            this.ScaleYNumeric.Location = new System.Drawing.Point(67, 214);
+            this.ScaleYNumeric.Location = new System.Drawing.Point(89, 263);
+            this.ScaleYNumeric.Margin = new System.Windows.Forms.Padding(4);
             this.ScaleYNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -142,8 +148,11 @@
             0,
             -2147483648});
             this.ScaleYNumeric.Name = "ScaleYNumeric";
-            this.ScaleYNumeric.Size = new System.Drawing.Size(185, 20);
+            this.ScaleYNumeric.Size = new System.Drawing.Size(247, 22);
             this.ScaleYNumeric.TabIndex = 28;
+            this.ScaleYNumeric.DoubleClick += new System.EventHandler(this.Numeric_DoubleClick);
+            this.ScaleYNumeric.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyDown);
+            this.ScaleYNumeric.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyUp);
             // 
             // ScaleXNumeric
             // 
@@ -153,7 +162,8 @@
             0,
             0,
             65536});
-            this.ScaleXNumeric.Location = new System.Drawing.Point(67, 188);
+            this.ScaleXNumeric.Location = new System.Drawing.Point(89, 231);
+            this.ScaleXNumeric.Margin = new System.Windows.Forms.Padding(4);
             this.ScaleXNumeric.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -165,40 +175,47 @@
             0,
             -2147483648});
             this.ScaleXNumeric.Name = "ScaleXNumeric";
-            this.ScaleXNumeric.Size = new System.Drawing.Size(185, 20);
+            this.ScaleXNumeric.Size = new System.Drawing.Size(247, 22);
             this.ScaleXNumeric.TabIndex = 27;
+            this.ScaleXNumeric.DoubleClick += new System.EventHandler(this.Numeric_DoubleClick);
+            this.ScaleXNumeric.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyDown);
+            this.ScaleXNumeric.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyUp);
             // 
             // ScaleZLabel
             // 
             this.ScaleZLabel.AutoSize = true;
-            this.ScaleZLabel.Location = new System.Drawing.Point(10, 242);
+            this.ScaleZLabel.Location = new System.Drawing.Point(13, 298);
+            this.ScaleZLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ScaleZLabel.Name = "ScaleZLabel";
-            this.ScaleZLabel.Size = new System.Drawing.Size(44, 13);
+            this.ScaleZLabel.Size = new System.Drawing.Size(56, 17);
             this.ScaleZLabel.TabIndex = 26;
             this.ScaleZLabel.Text = "Scale Z";
             // 
             // ScaleYLabel
             // 
             this.ScaleYLabel.AutoSize = true;
-            this.ScaleYLabel.Location = new System.Drawing.Point(10, 216);
+            this.ScaleYLabel.Location = new System.Drawing.Point(13, 266);
+            this.ScaleYLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ScaleYLabel.Name = "ScaleYLabel";
-            this.ScaleYLabel.Size = new System.Drawing.Size(44, 13);
+            this.ScaleYLabel.Size = new System.Drawing.Size(56, 17);
             this.ScaleYLabel.TabIndex = 25;
             this.ScaleYLabel.Text = "Scale Y";
             // 
             // ScaleXLabel
             // 
             this.ScaleXLabel.AutoSize = true;
-            this.ScaleXLabel.Location = new System.Drawing.Point(10, 190);
+            this.ScaleXLabel.Location = new System.Drawing.Point(13, 234);
+            this.ScaleXLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ScaleXLabel.Name = "ScaleXLabel";
-            this.ScaleXLabel.Size = new System.Drawing.Size(44, 13);
+            this.ScaleXLabel.Size = new System.Drawing.Size(56, 17);
             this.ScaleXLabel.TabIndex = 24;
             this.ScaleXLabel.Text = "Scale X";
             // 
             // RotationZNumeric
             // 
             this.RotationZNumeric.DecimalPlaces = 5;
-            this.RotationZNumeric.Location = new System.Drawing.Point(67, 162);
+            this.RotationZNumeric.Location = new System.Drawing.Point(89, 199);
+            this.RotationZNumeric.Margin = new System.Windows.Forms.Padding(4);
             this.RotationZNumeric.Maximum = new decimal(new int[] {
             360,
             0,
@@ -210,13 +227,17 @@
             0,
             -2147483648});
             this.RotationZNumeric.Name = "RotationZNumeric";
-            this.RotationZNumeric.Size = new System.Drawing.Size(185, 20);
+            this.RotationZNumeric.Size = new System.Drawing.Size(247, 22);
             this.RotationZNumeric.TabIndex = 23;
+            this.RotationZNumeric.DoubleClick += new System.EventHandler(this.Numeric_DoubleClick);
+            this.RotationZNumeric.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyDown);
+            this.RotationZNumeric.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyUp);
             // 
             // RotationYNumeric
             // 
             this.RotationYNumeric.DecimalPlaces = 5;
-            this.RotationYNumeric.Location = new System.Drawing.Point(67, 136);
+            this.RotationYNumeric.Location = new System.Drawing.Point(89, 167);
+            this.RotationYNumeric.Margin = new System.Windows.Forms.Padding(4);
             this.RotationYNumeric.Maximum = new decimal(new int[] {
             360,
             0,
@@ -228,13 +249,17 @@
             0,
             -2147483648});
             this.RotationYNumeric.Name = "RotationYNumeric";
-            this.RotationYNumeric.Size = new System.Drawing.Size(185, 20);
+            this.RotationYNumeric.Size = new System.Drawing.Size(247, 22);
             this.RotationYNumeric.TabIndex = 22;
+            this.RotationYNumeric.DoubleClick += new System.EventHandler(this.Numeric_DoubleClick);
+            this.RotationYNumeric.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyDown);
+            this.RotationYNumeric.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyUp);
             // 
             // RotationXNumeric
             // 
             this.RotationXNumeric.DecimalPlaces = 5;
-            this.RotationXNumeric.Location = new System.Drawing.Point(67, 110);
+            this.RotationXNumeric.Location = new System.Drawing.Point(89, 135);
+            this.RotationXNumeric.Margin = new System.Windows.Forms.Padding(4);
             this.RotationXNumeric.Maximum = new decimal(new int[] {
             360,
             0,
@@ -246,13 +271,17 @@
             0,
             -2147483648});
             this.RotationXNumeric.Name = "RotationXNumeric";
-            this.RotationXNumeric.Size = new System.Drawing.Size(185, 20);
+            this.RotationXNumeric.Size = new System.Drawing.Size(247, 22);
             this.RotationXNumeric.TabIndex = 21;
+            this.RotationXNumeric.DoubleClick += new System.EventHandler(this.Numeric_DoubleClick);
+            this.RotationXNumeric.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyDown);
+            this.RotationXNumeric.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyUp);
             // 
             // PositionZNumeric
             // 
             this.PositionZNumeric.DecimalPlaces = 5;
-            this.PositionZNumeric.Location = new System.Drawing.Point(67, 84);
+            this.PositionZNumeric.Location = new System.Drawing.Point(89, 103);
+            this.PositionZNumeric.Margin = new System.Windows.Forms.Padding(4);
             this.PositionZNumeric.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -264,13 +293,17 @@
             0,
             -2147483648});
             this.PositionZNumeric.Name = "PositionZNumeric";
-            this.PositionZNumeric.Size = new System.Drawing.Size(185, 20);
+            this.PositionZNumeric.Size = new System.Drawing.Size(247, 22);
             this.PositionZNumeric.TabIndex = 20;
+            this.PositionZNumeric.DoubleClick += new System.EventHandler(this.Numeric_DoubleClick);
+            this.PositionZNumeric.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyDown);
+            this.PositionZNumeric.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyUp);
             // 
             // PositionYNumeric
             // 
             this.PositionYNumeric.DecimalPlaces = 5;
-            this.PositionYNumeric.Location = new System.Drawing.Point(67, 58);
+            this.PositionYNumeric.Location = new System.Drawing.Point(89, 71);
+            this.PositionYNumeric.Margin = new System.Windows.Forms.Padding(4);
             this.PositionYNumeric.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -282,13 +315,17 @@
             0,
             -2147483648});
             this.PositionYNumeric.Name = "PositionYNumeric";
-            this.PositionYNumeric.Size = new System.Drawing.Size(185, 20);
+            this.PositionYNumeric.Size = new System.Drawing.Size(247, 22);
             this.PositionYNumeric.TabIndex = 19;
+            this.PositionYNumeric.DoubleClick += new System.EventHandler(this.Numeric_DoubleClick);
+            this.PositionYNumeric.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyDown);
+            this.PositionYNumeric.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyUp);
             // 
             // PositionXNumeric
             // 
             this.PositionXNumeric.DecimalPlaces = 5;
-            this.PositionXNumeric.Location = new System.Drawing.Point(67, 32);
+            this.PositionXNumeric.Location = new System.Drawing.Point(89, 39);
+            this.PositionXNumeric.Margin = new System.Windows.Forms.Padding(4);
             this.PositionXNumeric.Maximum = new decimal(new int[] {
             999999999,
             0,
@@ -300,78 +337,89 @@
             0,
             -2147483648});
             this.PositionXNumeric.Name = "PositionXNumeric";
-            this.PositionXNumeric.Size = new System.Drawing.Size(185, 20);
+            this.PositionXNumeric.Size = new System.Drawing.Size(247, 22);
             this.PositionXNumeric.TabIndex = 18;
+            this.PositionXNumeric.DoubleClick += new System.EventHandler(this.Numeric_DoubleClick);
+            this.PositionXNumeric.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyDown);
+            this.PositionXNumeric.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyUp);
             // 
             // CurrentEntry
             // 
             this.CurrentEntry.AutoSize = true;
-            this.CurrentEntry.Location = new System.Drawing.Point(10, 7);
+            this.CurrentEntry.Location = new System.Drawing.Point(13, 9);
+            this.CurrentEntry.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CurrentEntry.Name = "CurrentEntry";
-            this.CurrentEntry.Size = new System.Drawing.Size(0, 13);
+            this.CurrentEntry.Size = new System.Drawing.Size(0, 17);
             this.CurrentEntry.TabIndex = 12;
             // 
             // RotationZLabel
             // 
             this.RotationZLabel.AutoSize = true;
-            this.RotationZLabel.Location = new System.Drawing.Point(7, 164);
+            this.RotationZLabel.Location = new System.Drawing.Point(9, 202);
+            this.RotationZLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.RotationZLabel.Name = "RotationZLabel";
-            this.RotationZLabel.Size = new System.Drawing.Size(57, 13);
+            this.RotationZLabel.Size = new System.Drawing.Size(74, 17);
             this.RotationZLabel.TabIndex = 10;
             this.RotationZLabel.Text = "Rotation Z";
             // 
             // RotationYLabel
             // 
             this.RotationYLabel.AutoSize = true;
-            this.RotationYLabel.Location = new System.Drawing.Point(7, 138);
+            this.RotationYLabel.Location = new System.Drawing.Point(9, 170);
+            this.RotationYLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.RotationYLabel.Name = "RotationYLabel";
-            this.RotationYLabel.Size = new System.Drawing.Size(57, 13);
+            this.RotationYLabel.Size = new System.Drawing.Size(74, 17);
             this.RotationYLabel.TabIndex = 8;
             this.RotationYLabel.Text = "Rotation Y";
             // 
             // RotationXLabel
             // 
             this.RotationXLabel.AutoSize = true;
-            this.RotationXLabel.Location = new System.Drawing.Point(7, 112);
+            this.RotationXLabel.Location = new System.Drawing.Point(9, 138);
+            this.RotationXLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.RotationXLabel.Name = "RotationXLabel";
-            this.RotationXLabel.Size = new System.Drawing.Size(57, 13);
+            this.RotationXLabel.Size = new System.Drawing.Size(74, 17);
             this.RotationXLabel.TabIndex = 6;
             this.RotationXLabel.Text = "Rotation X";
             // 
             // PositionZLabel
             // 
             this.PositionZLabel.AutoSize = true;
-            this.PositionZLabel.Location = new System.Drawing.Point(7, 86);
+            this.PositionZLabel.Location = new System.Drawing.Point(9, 106);
+            this.PositionZLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PositionZLabel.Name = "PositionZLabel";
-            this.PositionZLabel.Size = new System.Drawing.Size(54, 13);
+            this.PositionZLabel.Size = new System.Drawing.Size(71, 17);
             this.PositionZLabel.TabIndex = 4;
             this.PositionZLabel.Text = "Position Z";
             // 
             // PositionYLabel
             // 
             this.PositionYLabel.AutoSize = true;
-            this.PositionYLabel.Location = new System.Drawing.Point(7, 60);
+            this.PositionYLabel.Location = new System.Drawing.Point(9, 74);
+            this.PositionYLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PositionYLabel.Name = "PositionYLabel";
-            this.PositionYLabel.Size = new System.Drawing.Size(54, 13);
+            this.PositionYLabel.Size = new System.Drawing.Size(71, 17);
             this.PositionYLabel.TabIndex = 2;
             this.PositionYLabel.Text = "Position Y";
             // 
             // PositionXLabel
             // 
             this.PositionXLabel.AutoSize = true;
-            this.PositionXLabel.Location = new System.Drawing.Point(6, 34);
+            this.PositionXLabel.Location = new System.Drawing.Point(8, 42);
+            this.PositionXLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PositionXLabel.Name = "PositionXLabel";
-            this.PositionXLabel.Size = new System.Drawing.Size(54, 13);
+            this.PositionXLabel.Size = new System.Drawing.Size(71, 17);
             this.PositionXLabel.TabIndex = 0;
             this.PositionXLabel.Text = "Position X";
             // 
             // PropertyTab
             // 
             this.PropertyTab.Controls.Add(this.PropertyGrid);
-            this.PropertyTab.Location = new System.Drawing.Point(4, 22);
+            this.PropertyTab.Location = new System.Drawing.Point(4, 25);
+            this.PropertyTab.Margin = new System.Windows.Forms.Padding(4);
             this.PropertyTab.Name = "PropertyTab";
-            this.PropertyTab.Padding = new System.Windows.Forms.Padding(3);
-            this.PropertyTab.Size = new System.Drawing.Size(261, 435);
+            this.PropertyTab.Padding = new System.Windows.Forms.Padding(4);
+            this.PropertyTab.Size = new System.Drawing.Size(351, 538);
             this.PropertyTab.TabIndex = 0;
             this.PropertyTab.Text = "Property Grid";
             this.PropertyTab.UseVisualStyleBackColor = true;
@@ -380,9 +428,10 @@
             // 
             this.PropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PropertyGrid.LineColor = System.Drawing.SystemColors.ScrollBar;
-            this.PropertyGrid.Location = new System.Drawing.Point(3, 3);
+            this.PropertyGrid.Location = new System.Drawing.Point(4, 4);
+            this.PropertyGrid.Margin = new System.Windows.Forms.Padding(4);
             this.PropertyGrid.Name = "PropertyGrid";
-            this.PropertyGrid.Size = new System.Drawing.Size(255, 429);
+            this.PropertyGrid.Size = new System.Drawing.Size(343, 530);
             this.PropertyGrid.TabIndex = 2;
             // 
             // MainTabControl
@@ -392,20 +441,24 @@
             this.MainTabControl.Controls.Add(this.MaterialPage);
             this.MainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTabControl.Location = new System.Drawing.Point(0, 0);
+            this.MainTabControl.Margin = new System.Windows.Forms.Padding(4);
             this.MainTabControl.Name = "MainTabControl";
             this.MainTabControl.SelectedIndex = 0;
-            this.MainTabControl.Size = new System.Drawing.Size(269, 461);
+            this.MainTabControl.Size = new System.Drawing.Size(359, 567);
             this.MainTabControl.TabIndex = 7;
+            this.MainTabControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyDown);
+            this.MainTabControl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyUp);
             // 
             // MaterialPage
             // 
             this.MaterialPage.Controls.Add(this.MatViewPanel);
             this.MaterialPage.Controls.Add(this.label1);
             this.MaterialPage.Controls.Add(this.LODComboBox);
-            this.MaterialPage.Location = new System.Drawing.Point(4, 22);
+            this.MaterialPage.Location = new System.Drawing.Point(4, 25);
+            this.MaterialPage.Margin = new System.Windows.Forms.Padding(4);
             this.MaterialPage.Name = "MaterialPage";
-            this.MaterialPage.Padding = new System.Windows.Forms.Padding(3);
-            this.MaterialPage.Size = new System.Drawing.Size(261, 435);
+            this.MaterialPage.Padding = new System.Windows.Forms.Padding(4);
+            this.MaterialPage.Size = new System.Drawing.Size(351, 538);
             this.MaterialPage.TabIndex = 2;
             this.MaterialPage.Text = "Model Materials";
             this.MaterialPage.UseVisualStyleBackColor = true;
@@ -416,45 +469,52 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MatViewPanel.AutoScroll = true;
-            this.MatViewPanel.Location = new System.Drawing.Point(12, 51);
+            this.MatViewPanel.Location = new System.Drawing.Point(16, 63);
+            this.MatViewPanel.Margin = new System.Windows.Forms.Padding(4);
             this.MatViewPanel.Name = "MatViewPanel";
-            this.MatViewPanel.Size = new System.Drawing.Size(239, 376);
+            this.MatViewPanel.Size = new System.Drawing.Size(319, 463);
             this.MatViewPanel.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 7);
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.Size = new System.Drawing.Size(80, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Select LOD";
             // 
             // LODComboBox
             // 
             this.LODComboBox.FormattingEnabled = true;
-            this.LODComboBox.Location = new System.Drawing.Point(8, 24);
+            this.LODComboBox.Location = new System.Drawing.Point(11, 30);
+            this.LODComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.LODComboBox.Name = "LODComboBox";
-            this.LODComboBox.Size = new System.Drawing.Size(243, 21);
+            this.LODComboBox.Size = new System.Drawing.Size(323, 24);
             this.LODComboBox.TabIndex = 0;
             this.LODComboBox.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged);
             // 
             // DockPropertyGrid
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(269, 461);
+            this.ClientSize = new System.Drawing.Size(359, 567);
             this.Controls.Add(this.MainTabControl);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft) 
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight) 
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop) 
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom)));
             this.HideOnClose = true;
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DockPropertyGrid";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockRight;
             this.TabText = "Frame Properties";
             this.Text = "PropertyGrid";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TransformEditKeyUp);
             this.QuickEditTab.ResumeLayout(false);
             this.QuickEditTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ScaleZNumeric)).EndInit();

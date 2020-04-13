@@ -10,6 +10,7 @@ using System.IO;
 using Utils.Lang;
 using WeifenLuo.WinFormsUI.Docking;
 using Utils.SharpDXExtensions;
+using System.Windows.Input;
 
 namespace Forms.Docking
 {
@@ -229,6 +230,35 @@ namespace Forms.Docking
                     ((TextureEntry)c).IsSelected = false;
                 }
             }
+        }
+
+        private void Numeric_DoubleClick(object sender, EventArgs e)
+        {
+            System.Windows.Forms.NumericUpDown Numeric = (System.Windows.Forms.NumericUpDown)sender;
+            Numeric.Select(0, Numeric.Text.Length);
+        }
+
+        private void TransformEditKeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.Shift)
+            {
+                PositionXNumeric.Increment = 10;
+                PositionYNumeric.Increment = 10;
+                PositionZNumeric.Increment = 10;
+                RotationXNumeric.Increment = 45;
+                RotationYNumeric.Increment = 45;
+                RotationZNumeric.Increment = 45;
+            }
+        }
+
+        private void TransformEditKeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            PositionXNumeric.Increment = 1;
+            PositionYNumeric.Increment = 1;
+            PositionZNumeric.Increment = 1;
+            RotationXNumeric.Increment = 1;
+            RotationYNumeric.Increment = 1;
+            RotationZNumeric.Increment = 1;
         }
     }
 }
