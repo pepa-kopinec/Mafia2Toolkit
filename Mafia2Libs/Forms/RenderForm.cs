@@ -52,6 +52,8 @@ namespace Mafia2Tool
 
         private bool bSelectMode = false;
         private float selectTimer = 0.0f;
+        private bool MovingModel = false;
+
 
         public D3DForm(FileInfo info)
         {
@@ -321,7 +323,7 @@ namespace Mafia2Tool
 
             if (RenderPanel.Focused)
             {
-                if (Input.IsButtonDown(MouseButtons.Right))
+                if (Input.IsButtonDown(MouseButtons.Right) && MovingModel==false)
                 {
                     var dx = -0.25f * (mousePos.X - lastMousePos.X);
                     var dy = -0.25f * (mousePos.Y - lastMousePos.Y);
@@ -330,10 +332,18 @@ namespace Mafia2Tool
                     camUpdated = true;
                     
                 }
-                else if (Input.IsButtonDown(MouseButtons.Left) && bSelectMode && selectTimer <= 0.0f)
+                else if (Input.IsButtonDown(MouseButtons.Left) && bSelectMode && selectTimer <= 0.0f && MovingModel == false)
                 {
                     Pick(mousePos.X, mousePos.Y);
-                    selectTimer = 1.0f;
+                    selectTimer = 0.0f;
+                }
+                else if (Input.IsButtonDown(MouseButtons.Left) && bSelectMode && MovingModel)
+                {
+                    MoveObjectWithMouse(mousePos.X, mousePos.Y);
+                }
+                else if (Input.IsButtonDown(MouseButtons.Left) == false && bSelectMode && MovingModel)
+                {
+                    MovingModel = false;
                 }
 
                 Graphics.Camera.SetProjectionMatrix(RenderPanel.Width, RenderPanel.Height);
@@ -1277,9 +1287,35 @@ namespace Mafia2Tool
 
             if (nodes.Length > 0)
             {
+                if (dSceneTree.treeView1.SelectedNode == nodes[0]) //selectSameModelMoving
+                {
+                    MovingModel = true;
+                }
                 dSceneTree.treeView1.SelectedNode = nodes[0];
                 TreeViewUpdateSelected();
             }
+        }
+
+        private void MoveObjectWithMouse(int sx, int sy)
+        {
+            Ray ray = Graphics.Camera.GetPickingRay(new Vector2(sx, sy), new Vector2(RenderPanel.Size.Width, RenderPanel.Size.Height));
+            FrameObjectBase fObject = (dSceneTree.treeView1.SelectedNode.Tag as FrameObjectBase);
+            Vector3 worldPosition = ray.Position + (ray.Direction * 1);
+            //Vector3 worldPosition = ray.Position + (ray.Direction*(ray.Position.Z + ray.Direction.Z / fObject.LocalTransform.TranslationVector.Z)); nefunguje, asi chyba v odcitani?
+
+            for (int i = 0; i < 99999; i++)
+            {
+                worldPosition = ray.Position + (ray.Direction * i);
+                if (worldPosition.Z - fObject.LocalTransform.TranslationVector.Z < 10 )
+                {
+                    break;
+                }
+            }
+            
+            //MessageBox.Show(worldPosition.X.ToString() + " " + worldPosition.Y.ToString() + " " + worldPosition.Z.ToString());
+            fObject.LocalTransform = MatrixExtensions.SetMatrix(new Vector3(0, 0, 0), new Vector3(1, 1, 1), new Vector3(worldPosition.X, worldPosition.Y, fObject.LocalTransform.TranslationVector.Z));
+            TreeViewUpdateSelected();
+            ApplyChangesToRenderable(fObject);
         }
 
         public void Shutdown()
